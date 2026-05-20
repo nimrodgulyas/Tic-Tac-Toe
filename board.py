@@ -1,6 +1,6 @@
-tabla = ['O', ".", ".",
-        '', "O", ".",
-        '', ".", "O"]
+tabla = ['', "X", ".",
+        '', "X", ".",
+        '', "X", "O"]
 def get_empty_board():
     for elem in tabla:
         if elem == ".":
