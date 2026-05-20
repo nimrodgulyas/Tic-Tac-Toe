@@ -1,6 +1,6 @@
-tabla = ['', "X", ".",
-        '', "X", ".",
-        '', "X", "O"]
+tabla = ['.', ".", ".",
+        '.', ".", ".",
+        '.', ".", "."]
 def get_empty_board():
     for elem in tabla:
         if elem == ".":
@@ -24,7 +24,6 @@ def is_board_full(board):
         else:
             return False
 
-print(is_board_full(board))
 
 def get_winning_player(board):
     x  = 0
@@ -35,4 +34,5 @@ def get_winning_player(board):
     elif board[0] == ['O', 'O', 'O'] or board[1] == ['O', 'O', 'O'] or board[2] == ['O', 'O', 'O'] or board[0][0] == 'O' and board[1][0] == 'O' and board [2][0] == 'O' or board[0][1] == 'O' and board[1][1] == 'O' and board [2][1] == 'O' or board[0][2] == 'O' and board[1][2] == 'O' and board [2][2] == 'O' or board[0][0] == 'O' and board[1][1] == 'O' and board [2][2] == 'O' or board[0][2] == 'O' and board[1][1] == 'O' and board [2][0] == 'O':
         O += 2
         return O
-print(get_winning_player(board))
+    return True
+
