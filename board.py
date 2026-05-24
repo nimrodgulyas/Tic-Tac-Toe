@@ -15,14 +15,15 @@ def display_board(board):
     print("A",  board[0])
     print("B",  board[1])
     print("C",   board[2])
-print(display_board(board))
+
 
 def is_board_full(board):
-    for i in board:
-        if i == '.':
-            return True
+    for sor in board:
+        for elem in sor:
+            if elem == '.':
+                return False
         else:
-            return False
+            return True
 
 
 def get_winning_player(board):
@@ -30,9 +31,10 @@ def get_winning_player(board):
     O = 0
     if board[0] == ['X', 'X', 'X'] or board[1] == ['X', 'X', 'X'] or board[2] == ['X', 'X', 'X'] or board[0][0] == 'X' and board[1][0] == 'X' and board [2][0] == 'X' or board[0][1] == 'X' and board[1][1] == 'X' and board [2][1] == 'X' or board[0][2] == 'X' and board[1][2] == 'X' and board [2][2] == 'X' or board[0][0] == 'X' and board[1][1] == 'X' and board [2][2] == 'X' or board[0][2] == 'X' and board[1][1] == 'X' and board [2][0] == 'X':
         x += 1
-        return x
-    elif board[0] == ['O', 'O', 'O'] or board[1] == ['O', 'O', 'O'] or board[2] == ['O', 'O', 'O'] or board[0][0] == 'O' and board[1][0] == 'O' and board [2][0] == 'O' or board[0][1] == 'O' and board[1][1] == 'O' and board [2][1] == 'O' or board[0][2] == 'O' and board[1][2] == 'O' and board [2][2] == 'O' or board[0][0] == 'O' and board[1][1] == 'O' and board [2][2] == 'O' or board[0][2] == 'O' and board[1][1] == 'O' and board [2][0] == 'O':
+        return 'X'
+    
+    if board[0] == ['O', 'O', 'O'] or board[1] == ['O', 'O', 'O'] or board[2] == ['O', 'O', 'O'] or board[0][0] == 'O' and board[1][0] == 'O' and board [2][0] == 'O' or board[0][1] == 'O' and board[1][1] == 'O' and board [2][1] == 'O' or board[0][2] == 'O' and board[1][2] == 'O' and board [2][2] == 'O' or board[0][0] == 'O' and board[1][1] == 'O' and board [2][2] == 'O' or board[0][2] == 'O' and board[1][1] == 'O' and board [2][0] == 'O':
         O += 2
-        return O
-    return True
+        return 'O'
+    return None
 
