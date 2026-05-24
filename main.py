@@ -14,24 +14,28 @@ if mod == 1:
     
 
 while is_board_full(board) == False:
-    board = get_human_coordinates(board)
-    winner = get_winning_player(board)
+    for sor in board:
+        for elem in sor:
+            board = get_human_coordinates(board)
+            winner = get_winning_player(board)
     
-    if get_winning_player(board) == 'X':
-        winner = 'X'
-        break
+            if get_winning_player(board) == 'X':
+                winner = 'X'
+                print(f"Congratulates! The winner is {winner}!")
+                break
     
-    if get_winning_player(board) == 'O':
-        winner = 'O'
-        break
+            if get_winning_player(board) == 'O':
+                winner = 'O'
+                print(f"Congratulates! The winner is {winner}!")
+                break
     
-    print(f"Congratulates! The winner is {winner}!")
+            
         
-    if is_board_full() == True and winner != 'X' or winner != "O":
-        print("It's a tie! The board is full!")
-        break
+            if is_board_full() == True and winner != 'X' or winner != "O":
+                print("It's a tie! The board is full!")
+                break
     
-    if current_player == 'X':
-        current_player = 'O'
-    else:
-        current_player = 'X'
+#    if current_player == 'X':
+#        current_player = 'O'
+#    else:
+#        current_player = 'X'
