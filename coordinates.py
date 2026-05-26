@@ -1,4 +1,4 @@
-from board import get_winning_player
+
 from board import is_board_full
 import board
 
@@ -10,7 +10,8 @@ def get_human_coordinates(board):
         for sor in board:
             for eleme in sor:
                 if player == ("X"):
-                    (board[sor][eleme]) = "X"
+                    (board[sor][eleme]) = player
                 elif player == ("O"):
-                    (board[sor][eleme]) = "O"
+                    (board[sor][eleme]) = player
                 print(board)
+print(board[1][2])

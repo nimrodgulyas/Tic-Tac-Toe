@@ -2,7 +2,6 @@ from board import get_winning_player
 from coordinates import get_human_coordinates
 from menu import get_menu_option
 from board import get_empty_board
-from board import display_board
 from board import is_board_full
 import board
 
