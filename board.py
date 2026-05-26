@@ -1,40 +1,38 @@
-tabla = ['.', ".", ".",
-        '.', ".", ".",
-        '.', ".", "."]
 def get_empty_board():
-    for elem in tabla:
-        if elem == ".":
-            sublist1 = tabla[0:3]
-            sublist2 = tabla[3:6]
-            sublist3 = tabla[6:9]
-            return [sublist1, sublist2, sublist3]
+    return [['.', '.', '.'], 
+            ['.', '.', '.'], 
+            ['.', '.', '.']]
 
-board = get_empty_board()
 def display_board(board):
-    print("    1    2    3")
-    print("A",  board[0])
-    print("B",  board[1])
-    print("C",   board[2])
-
+    print("   1   2   3")
+    print(f"A  {board[0][0]} | {board[0][1]} | {board[0][2]}")
+    print("  ---+---+---")
+    print(f"B  {board[1][0]} | {board[1][1]} | {board[1][2]}")
+    print("  ---+---+---")
+    print(f"C  {board[2][0]} | {board[2][1]} | {board[2][2]}")
 
 def is_board_full(board):
     for sor in board:
         for elem in sor:
             if elem == '.':
                 return False
-        else:
-            return True
-
+    return True
 
 def get_winning_player(board):
-    x  = 0
-    O = 0
-    if board[0] == ['X', 'X', 'X'] or board[1] == ['X', 'X', 'X'] or board[2] == ['X', 'X', 'X'] or board[0][0] == 'X' and board[1][0] == 'X' and board [2][0] == 'X' or board[0][1] == 'X' and board[1][1] == 'X' and board [2][1] == 'X' or board[0][2] == 'X' and board[1][2] == 'X' and board [2][2] == 'X' or board[0][0] == 'X' and board[1][1] == 'X' and board [2][2] == 'X' or board[0][2] == 'X' and board[1][1] == 'X' and board [2][0] == 'X':
-        x += 1
-        return 'X'
-    
-    if board[0] == ['O', 'O', 'O'] or board[1] == ['O', 'O', 'O'] or board[2] == ['O', 'O', 'O'] or board[0][0] == 'O' and board[1][0] == 'O' and board [2][0] == 'O' or board[0][1] == 'O' and board[1][1] == 'O' and board [2][1] == 'O' or board[0][2] == 'O' and board[1][2] == 'O' and board [2][2] == 'O' or board[0][0] == 'O' and board[1][1] == 'O' and board [2][2] == 'O' or board[0][2] == 'O' and board[1][1] == 'O' and board [2][0] == 'O':
-        O += 2
-        return 'O'
+    #vízszint
+    for i in range(3):
+        if board[i][0] == board[i][1] == board[i][2] and board[i][0] != '.':
+            return board[i][0]
+            
+    #függőleges oszlopok 
+    for i in range(3):
+        if board[0][i] == board[1][i] == board[2][i] and board[0][i] != '.':
+            return board[0][i]
+            
+    # átlók
+    if board[0][0] == board[1][1] == board[2][2] and board[0][0] != '.':
+        return board[0][0]
+    if board[0][2] == board[1][1] == board[2][0] and board[0][2] != '.':
+        return board[0][2]
+        
     return None
-
