@@ -56,4 +56,37 @@ def main():
         # Lépés bekérése (pl.: A1 vagy B3)
         move = input("Adj meg egy koordinátát (pl. A1): ").upper().strip()
         
-    
+    # Egyszerű input ellenőrzés
+        if len(move) != 2 or move[0] not in row_mapping or move[1] not in ['1', '2', '3']:
+            print("Hibás formátum! Kérlek használj A1, B2 formátumot.")
+            continue
+            
+        row = row_mapping[move[0]]
+        col = int(move[1]) - 1
+        
+        # Ellenőrizzük, hogy üres-e a hely
+        if board[row][col] != '.':
+            print("Ez a hely már foglalt! Válassz másikat.")
+            continue
+            
+        # Lépés végrehajtása
+        board[row][col] = current_player
+        
+        # Van nyertes?
+        winner = get_winning_player(board)
+        if winner:
+            display_board(board)
+            print(f"\nGratulálok! A játékot '{winner}' nyerte!")
+            break
+            
+        # Betelt a tábla?
+        if is_board_full(board):
+            display_board(board)
+            print("\nDöntetlen! A tábla megtelt.")
+            break
+            
+        # Játékos váltása
+        current_player = 'O' if current_player == 'X' else 'X'
+
+if __name__ == "__main__":
+    main()
