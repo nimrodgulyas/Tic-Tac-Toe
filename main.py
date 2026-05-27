@@ -47,18 +47,18 @@ def main():
     # Szótár, amivel a játékos betű-beviteleit indexszé alakítjuk (A->0, B->1, C->2)
     row_mapping = {'A': 0, 'B': 1, 'C': 2}
     
-    print("Üdvözöllek a Tic-Tac-Toe játékban!")
+    print("Welcome to Tic-Tac-Toe!")
     
     while True:
         display_board(board)
-        print(f"\n'{current_player}' játékos köre következik.")
+        print(f"\n'{current_player}' the player's round is the next.")
         
         # Lépés bekérése (pl.: A1 vagy B3)
-        move = input("Adj meg egy koordinátát (pl. A1): ").upper().strip()
+        move = input("Give a coordinate (eg. A1): ").upper().strip()
         
     # Egyszerű input ellenőrzés
         if len(move) != 2 or move[0] not in row_mapping or move[1] not in ['1', '2', '3']:
-            print("Hibás formátum! Kérlek használj A1, B2 formátumot.")
+            print("Wrong format! Please use A1, B2 format.")
             continue
             
         row = row_mapping[move[0]]
@@ -66,7 +66,7 @@ def main():
         
         # Ellenőrizzük, hogy üres-e a hely
         if board[row][col] != '.':
-            print("Ez a hely már foglalt! Válassz másikat.")
+            print("This place is already taken! Please choose another one.")
             continue
             
         # Lépés végrehajtása
@@ -76,13 +76,13 @@ def main():
         winner = get_winning_player(board)
         if winner:
             display_board(board)
-            print(f"\nGratulálok! A játékot '{winner}' nyerte!")
+            print(f"\nCongrats! '{winner}' won the game!")
             break
             
         # Betelt a tábla?
         if is_board_full(board):
             display_board(board)
-            print("\nDöntetlen! A tábla megtelt.")
+            print("\nIt's a tie! The table is full.")
             break
             
         # Játékos váltása
