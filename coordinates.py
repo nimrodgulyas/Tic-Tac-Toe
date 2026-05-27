@@ -14,4 +14,3 @@ def get_human_coordinates(board):
                 elif player == ("O"):
                     (board[sor][eleme]) = player
                 print(board)
-print(board[1][2])
